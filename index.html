@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1a14">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A little place on the internet, made with care.">
+<title>A Little Place, Just for You ♡</title>
+<style>
+:root{--ink:#2f352d;--sage:#536951;--rose:#d99e98;--gold:#e8c987;--paper:#fbf6ed;--serif:Georgia,'Times New Roman',serif;--sans:ui-rounded,'Avenir Next',system-ui,-apple-system,'Segoe UI',sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:#0b1a14;color:var(--ink);font-family:var(--sans);line-height:1.65}
+button{font:inherit;cursor:pointer}
+.hide{display:none!important}
+/* INTRO */
+#intro{position:fixed;inset:0;z-index:50;overflow:hidden;background:#06100c;transition:opacity 1.2s ease,visibility 1.2s}
+#intro.gone{opacity:0;visibility:hidden}
+#stage{position:absolute;inset:0;transform-origin:50% 62%;animation:slowzoom 22s ease-in-out infinite alternate}
+#intro.entering #stage{animation:none;transform:scale(3.2);transition:transform 2.2s cubic-bezier(.6,0,.2,1)}
+@keyframes slowzoom{from{transform:scale(1)}to{transform:scale(1.18)}}
+#cv,#vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,transparent 30%,rgba(0,0,0,.65));pointer-events:none}
+.introtext{position:absolute;left:0;right:0;bottom:calc(10svh + env(safe-area-inset-bottom));text-align:center;color:#fff8e8;padding:0 24px;transition:opacity .8s}
+#intro.entering .introtext{opacity:0}
+.introtext small{display:block;letter-spacing:.3em;text-transform:uppercase;font-size:.68rem;color:var(--gold);opacity:0;animation:fadeup 2s .6s forwards}
+.introtext h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,11vw,4.4rem);line-height:1.02;letter-spacing:-.04em;margin:12px 0 22px;opacity:0;animation:fadeup 2.2s 1.4s forwards}
+.introtext h1 em{color:var(--gold)}
+.enter{border:1px solid rgba(232,201,135,.7);background:rgba(11,26,20,.45);color:#fff8e8;border-radius:999px;padding:14px 34px;letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;backdrop-filter:blur(6px);opacity:0;animation:fadeup 2s 2.6s forwards,glow 2.6s 4.6s infinite}
+@keyframes fadeup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes glow{50%{box-shadow:0 0 26px rgba(232,201,135,.55)}}
+/* SITE */
+#site{min-height:100svh;background:radial-gradient(ellipse at 8% 0,rgba(217,158,152,.25),transparent 30rem),radial-gradient(ellipse at 95% 25%,rgba(135,151,130,.25),transparent 28rem),var(--paper);opacity:0;transition:opacity 1.4s}
+#site.on{opacity:1}
+.wrap{width:min(100% - 28px,760px);margin-inline:auto}
+.hub{padding:calc(26px + env(safe-area-inset-top)) 0 20px;text-align:center}
+.eyebrow{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);font-weight:700}
+h2.big{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,9vw,3.6rem);line-height:1;letter-spacing:-.045em;margin:12px 0}
+h2.big em{color:var(--sage)}
+.lead{color:#66685e;max-width:470px;margin:0 auto 6px;font-size:.98rem}
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0;perspective:900px}
+.door{position:relative;aspect-ratio:3/4;border:0;padding:0;background:none;border-radius:90px 90px 14px 14px;overflow:hidden;box-shadow:0 14px 34px rgba(60,50,30,.2);transition:transform .3s}
+.door:active{transform:scale(.97)}
+.door .glow{position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,#fff4cf,var(--rose) 70%);display:grid;place-items:center;font-size:2.2rem}
+.door .leaf{position:absolute;inset:0;background:linear-gradient(160deg,var(--c1),var(--c2));transform-origin:left center;transition:transform .9s cubic-bezier(.3,.7,.2,1);border-radius:inherit;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;padding:16px 10px;color:#fff8e8;border:2px solid rgba(255,248,232,.35)}
+.door .leaf:before{content:'';position:absolute;right:16%;top:54%;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.door:hover .leaf,.door:focus-visible .leaf,.door.peek .leaf{transform:perspective(700px) rotateY(-62deg)}
+.leaf b{font-family:var(--serif);font-weight:400;font-size:1.05rem;line-height:1.15}
+.leaf i{font-style:normal;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{border:0;min-height:48px;border-radius:999px;padding:12px 22px;font-weight:700;font-size:.9rem;background:var(--sage);color:#fffdf8;box-shadow:0 9px 20px rgba(83,105,81,.2);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.q{background:rgba(255,253,248,.7);color:var(--sage);border:1px solid rgba(83,105,81,.25);box-shadow:none}
+.sec{padding:34px 0}
+.kick{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--sage);margin:0 0 4px}
+h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,7vw,2.4rem);letter-spacing:-.03em;line-height:1.1;margin:0 0 10px}
+.muted{color:#77766c;font-size:.93rem;margin:0 0 18px}
+/* photo */
+.photo{width:min(100%,420px);margin:0 auto;background:#fffdf8;padding:12px 12px 18px;border-radius:18px;box-shadow:0 20px 50px rgba(60,50,30,.18);transform:rotate(-1.2deg);transition:transform .4s;position:relative;touch-action:manipulation}
+.photo img{display:block;width:100%;height:auto;border-radius:10px}
+.photo figcaption{text-align:center;font-family:var(--serif);font-style:italic;color:#77766c;padding-top:14px}
+.photo .tap{position:absolute;right:20px;top:20px;background:rgba(255,253,248,.85);border-radius:999px;padding:4px 11px;font-size:.7rem;color:var(--sage);font-weight:700}
+/* song */
+.song{background:linear-gradient(150deg,#26382b,#43584a);color:#fff8e8;border-radius:24px;overflow:hidden;box-shadow:0 18px 45px rgba(30,45,30,.3)}
+.song .top{padding:24px 22px 14px;display:flex;gap:16px;align-items:center}
+.vinyl{flex:0 0 78px;height:78px;border-radius:50%;background:repeating-radial-gradient(circle,#161a16 0 3px,#222822 4px 6px);display:grid;place-items:center;animation:spin 6s linear infinite;animation-play-state:paused}
+.vinyl.play{animation-play-state:running}
+.vinyl:after{content:'';width:26px;height:26px;border-radius:50%;background:var(--rose)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.song h4{font-family:var(--serif);font-weight:400;font-size:1.7rem;margin:0}
+.song p{margin:2px 0 0;opacity:.8;font-size:.86rem}
+.vframe{margin:0 16px;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;display:grid;place-items:center;position:relative}
+.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.song .links{padding:16px;display:flex;gap:10px;flex-wrap:wrap}
+.song .btn{background:var(--rose);color:#3b2422;box-shadow:none}
+.song .btn.q{background:transparent;color:#fff8e8;border:1px solid rgba(255,248,232,.35)}
+/* letter */
+.env{position:relative;width:min(100%,440px);margin:0 auto;height:230px;background:#efe0c4;border-radius:6px 6px 14px 14px;box-shadow:0 16px 40px rgba(60,50,30,.2);border:0;display:block;color:#6d5a37;font-family:var(--serif);font-style:italic}
+.env:before{content:'';position:absolute;inset:0 0 auto;height:120px;background:linear-gradient(#e6d3ae,#efe0c4);clip-path:polygon(0 0,100% 0,50% 100%)}
+.env span{position:absolute;left:0;right:0;bottom:38px;font-size:1.05rem}
+.env .seal{position:absolute;left:50%;top:92px;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;background:#c98283;color:#fff;display:grid;place-items:center;font-style:normal;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.paperbox p{margin:0 0 14px}
+.sig{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--sage)}
+.end{text-align:center;padding:40px 0 calc(40px + env(safe-area-inset-bottom));color:#77766c;font-size:.8rem}
+/* panels */
+dialog{border:0;padding:0;width:min(100% - 20px,620px);max-height:86svh;border-radius:24px;background:#fffaf0;color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.4);overflow:auto;margin:auto}
+dialog::backdrop{background:rgba(8,18,13,.7);backdrop-filter:blur(5px)}
+dialog[open]{animation:pop .5s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.92)}}
+.pin{padding:26px 22px 24px;position:relative}
+.pin p{margin:0 0 14px}
+.x{position:sticky;top:10px;float:right;margin:10px 10px 0 0;width:40px;height:40px;border-radius:50%;border:1px solid rgba(83,105,81,.25);background:#fffdf8;color:var(--sage);font-size:1.2rem;z-index:2}
+.flip{width:100%;text-align:left;background:#fff;border:1px solid rgba(83,105,81,.2);border-radius:16px;padding:14px 16px;margin-bottom:11px;color:var(--ink)}
+.flip b{font-family:var(--serif);font-weight:400;font-size:1.1rem;display:flex;justify-content:space-between}
+.flip em{display:block;max-height:0;overflow:hidden;font-style:normal;color:#666;transition:max-height .5s,margin .5s}
+.flip.open em{max-height:260px;margin-top:8px}
+.quote{font-family:var(--serif);font-style:italic;font-size:1.15rem;border-left:2px solid var(--rose);padding:4px 0 4px 14px}
+.quote small{display:block;font-family:var(--sans);font-style:normal;font-size:.78rem;color:#888;margin-top:3px}
+.soft{background:#f4e1dc;border-radius:0 12px 12px 0;border-left:2px solid var(--rose);padding:13px 15px;font-family:var(--serif);font-style:italic;color:#655a55}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:99}
+.star{display:inline-block;border:0;background:none;color:#b9955d;font-size:1.5rem;padding:10px;opacity:.55;animation:tw 3s infinite}
+@keyframes tw{50%{opacity:1;transform:scale(1.3)}}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,10px);background:#2f352d;color:#fff;padding:10px 16px;border-radius:12px;font-size:.82rem;opacity:0;pointer-events:none;transition:.25s;z-index:120;max-width:calc(100% - 28px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+<section id="intro" aria-label="Introduction">
+  <div id="stage">
+    <video id="vid" class="hide" muted loop playsinline preload="metadata"></video>
+    <canvas id="cv"></canvas>
+  </div>
+  <div class="vig"></div>
+  <div class="introtext">
+    <small>a little something, for <span class="to">Tanishka</span></small>
+    <h1>Step into a<br><em>quiet little magic.</em></h1>
+    <button class="enter" id="enterBtn" type="button">Enter ✦</button>
+  </div>
+</section>
+
+<div id="site">
+  <div class="wrap">
+    <header class="hub">
+      <div class="eyebrow">not a grand gesture · just a little something</div>
+      <h2 class="big">Hey <em class="to">Tanishka</em>,<br>choose a door.</h2>
+      <p class="lead">You made something for me, and it gave me an idea to make something in my own way, too. Tap a door, take your time.</p>
+      <div class="doors" id="doors">
+        <button class="door" data-open="p1" style="--c1:#5f7a5c;--c2:#3b5239"><span class="glow">🌿</span><span class="leaf"><b>Things I notice</b><i>the little things</i></span></button>
+        <button class="door" data-open="p2" style="--c1:#c98a84;--c2:#a96d68"><span class="glow">☀️</span><span class="leaf"><b>That day at Samarthan</b><i>a memory I kept</i></span></button>
+        <button class="door" data-open="p3" style="--c1:#b9955d;--c2:#8d6e3d"><span class="glow">📖</span><span class="leaf"><b>Things you taught me</b><i>credit where due</i></span></button>
+        <button class="door" data-open="p4" style="--c1:#6c7f93;--c2:#46586b"><span class="glow">🌙</span><span class="leaf"><b>For now, we grow</b><i>no rush at all</i></span></button>
+      </div>
+      <div class="row">
+        <a class="btn q" href="#photo">Photo ↓</a><a class="btn q" href="#song">Song ♫</a><a class="btn q" href="#letter">Letter ✉</a>
+      </div>
+    </header>
+
+    <section class="sec" id="photo">
+      <p class="kick">a little frame for us</p><h3>One picture, a little extra warmth.</h3>
+      <p class="muted">Tap the photo.</p>
+      <figure class="photo" id="photoCard">
+        <img src="assets/tanishka-photo.webp" alt="A warm portrait of two people together with golden fairy lights behind them" width="1086" height="1448" loading="lazy">
+        <span class="tap">tap ♡</span>
+        <figcaption id="cap">A moment worth keeping.</figcaption>
+      </figure>
+    </section>
+
+    <section class="sec" id="song">
+      <p class="kick">press play when you're ready</p><h3>A song for this little corner.</h3>
+      <p class="muted">Because sometimes a song says it better than a paragraph can.</p>
+      <div class="song">
+        <div class="top"><div class="vinyl" id="vinyl"></div><div><h4>Alfaaz</h4><p>Hamza Malik × Zain Zohaib</p><p>You like this one, so it belongs here.</p></div></div>
+        <div class="vframe" id="vf"><button class="btn" id="playBtn" type="button">▶ Play the song</button></div>
+        <div class="links">
+          <a class="btn q" href="https://www.youtube.com/watch?v=cQq6iLF66Gc" target="_blank" rel="noopener">Open on YouTube ↗</a>
+          <a class="btn q" href="https://sirf.one/music/lyrics/alfaaz-hamza-malik-zain-zohaib" target="_blank" rel="noopener">Lyrics ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="letter">
+      <p class="kick">last thing</p><h3>A letter, if you'd like it.</h3>
+      <p class="muted">Tap the envelope.</p>
+      <button class="env" data-open="pl" type="button" aria-label="Open the letter"><i class="seal">♡</i><span>for Tanishka</span></button>
+    </section>
+    <div class="end"><span class="to-line">made with care</span> ♥ <button class="star" id="star" aria-label="A hidden star">✦</button></div>
+  </div>
+</div>
+
+<!-- PANELS -->
+<dialog id="p1"><button class="x" aria-label="Close">×</button><div class="pin">
+  <p class="kick">tap a card</p><h3>Things I notice about you.</h3>
+  <button class="flip"><b>That smile of yours <span>+</span></b><em>You have a way of making an ordinary moment feel lighter. Sometimes I start a conversation with a hundred things on my mind and end up smiling without noticing when my mood changed.</em></button>
+  <button class="flip"><b>Your eyes, obviously <span>+</span></b><em>I could try to make this sound poetic, but the honest version is easier: your eyes are beautiful, and yes, I notice.</em></button>
+  <button class="flip"><b>Your steady side <span>+</span></b><em>I admire how you keep working through pressure and responsibilities while still trying to keep that smile. I know you have difficult days too, and I respect the effort you put in.</em></button>
+  <button class="flip"><b>The teasing <span>+</span></b><em>The random teasing, the playful replies, and how a normal conversation turns into a whole little event. Some moments don't need an explanation; they're just fun to remember.</em></button>
+</div></dialog>
+
+<dialog id="p2"><button class="x" aria-label="Close">×</button><div class="pin">
+  <p class="kick">a memory I kept</p><h3>That day at Samarthan.</h3>
+  <p>I remember being caught up in work pressure and not quite acting like my usual self. Then came your teasing, your playful side, and those little conversations that made it hard to stay serious for very long.</p>
+  <p>Working beside you, talking between tasks, and laughing over little things made the pressure feel far away for a while. I remember wishing the moment could last a little longer.</p>
+  <p>Nothing extraordinary was happening. We were simply sharing an ordinary day. Maybe that's exactly why I remember it: it felt happy, comfortable, and familiar.</p>
+  <p class="soft">Some moments stay with us not because they were perfect, but because being ourselves felt easy.</p>
+</div></dialog>
+
+<dialog id="p3"><button class="x" aria-label="Close">×</button><div class="pin">
+  <p class="kick">something I carry with me</p><h3>Things you've taught me.</h3>
+  <p>I appreciate that you remind me to return to the things that matter. Sometimes the truth stings a little, but with time I've learned to think about it instead of dismissing it.</p>
+  <p class="quote">“If something is truly meant for me, I cannot lose it.”<small>A reminder to be patient, not passive.</small></p>
+  <p class="quote">“Delay is not denial.”<small>A reminder to keep working while life takes its time.</small></p>
+  <p>I'm still learning to put those ideas into practice. But I like that our conversations give me reasons to look at myself a little more honestly.</p>
+</div></dialog>
+
+<dialog id="p4"><button class="x" aria-label="Close">×</button><div class="pin">
+  <p class="kick">no rush to figure everything out</p><h3>For now, let's keep growing.</h3>
+  <p>I find it interesting how we can have our own personalities and still discover similarities in how we think and look at life. Sharing the same professional journey means something too: the pressure, the long study days, the small wins.</p>
+  <p>I know a future isn't something one person can decide in their imagination. It has to grow mutually, through time, understanding, and choices we both make.</p>
+  <p>For now, we have our CA journey and a lot of work to do. I respect where we are, and I want both of us to give our ambitions the attention they deserve, keeping our connection comfortable and without pressure.</p>
+</div></dialog>
+
+<dialog id="ps"><button class="x" aria-label="Close">×</button><div class="pin" style="text-align:center">
+  <div style="font-size:2.6rem">🌸</div><h3>You found the hidden star.</h3>
+  <p>Of course you did, you notice the small things too.</p>
+  <p class="soft">Tiny reminder: someone thought you deserved a little extra effort today. Whatever the day looked like, you handled it well. ♡</p>
+</div></dialog>
+
+<dialog id="pl"><button class="x" aria-label="Close">×</button><div class="pin paperbox">
+  <p class="kick" style="color:#b9955d">a note for you</p>
+  <p>Dear <span class="to">Tanishka</span>,</p>
+  <p>I made this because I wanted to, not because anything needed saying. You made something for me, and it made me want to answer in my own way.</p>
+  <p>Thank you for the teasing that turns ordinary days into small events, for the honest reminders that I eventually think about, and for the way you keep going through pressure while still holding on to your smile. I notice it. I respect it.</p>
+  <p>I know we both have a lot of work ahead, and CA comes first for both of us. There's nothing you need to answer or decide. I'm happy with the pace we're at, and I'd like to keep being someone who is easy to talk to and good to have around.</p>
+  <p>If any part of this made you smile, then it did its job.</p>
+  <p>Keep smiling. Keep growing. Keep being you.</p>
+  <p class="sig">— <span class="from">someone who thought of you</span> ♡</p>
+</div></dialog>
+
+<canvas id="fx"></canvas>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+// personalised link: ?to=Name&from=Name&video=assets/intro.mp4
+const q=new URLSearchParams(location.search);
+if(q.get('to'))$$('.to').forEach(e=>e.textContent=q.get('to').slice(0,30));
+if(q.get('from'))$$('.from').forEach(e=>e.textContent=q.get('from').slice(0,30));
+// optional real video: drop a file at assets/intro.mp4 (or pass ?video=url)
+const vid=$('#vid');vid.src=q.get('video')||'assets/intro.mp4';
+vid.addEventListener('canplay',()=>{vid.classList.remove('hide');vid.play().catch(()=>{})},{once:true});
+// magical forest canvas
+const cv=$('#cv'),c=cv.getContext('2d');let W,H,ff=[],trees=[],t=0,px=0;
+function size(){const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;c.setTransform(d,0,0,d,0,0);
+ ff=Array.from({length:W<500?55:90},()=>({x:Math.random()*W,y:H*.25+Math.random()*H*.7,r:Math.random()*2+.8,p:Math.random()*6,s:Math.random()*.4+.15}));
+ trees=[0,1,2].map(l=>Array.from({length:Math.ceil(W/(70-l*14))+2},(_,i)=>({x:i*(70-l*14)+Math.random()*30-30,h:(H*(.28+l*.1))*(.7+Math.random()*.6)})))}
+function frame(){t+=.006;
+ const g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,'#071a22');g.addColorStop(.5,'#123a35');g.addColorStop(1,'#0a1a12');c.fillStyle=g;c.fillRect(0,0,W,H);
+ const mx=W*.7+px*10,my=H*.2;const mg=c.createRadialGradient(mx,my,0,mx,my,H*.45);mg.addColorStop(0,'rgba(255,244,205,.95)');mg.addColorStop(.08,'rgba(255,240,190,.55)');mg.addColorStop(1,'rgba(255,240,190,0)');c.fillStyle=mg;c.fillRect(0,0,W,H);
+ // light rays
+ c.save();c.globalCompositeOperation='lighter';for(let i=0;i<5;i++){const a=.12+Math.sin(t*2+i)*.04;c.fillStyle=`rgba(255,236,170,${a*.35})`;c.beginPath();c.moveTo(mx,my);c.lineTo(mx-160+i*90-W*.3,H);c.lineTo(mx-100+i*90-W*.3,H);c.fill()}c.restore();
+ // tree layers (far to near)
+ trees.forEach((L,l)=>{const col=['#0f2d28','#0b2119','#06120d'][l],sway=Math.sin(t*2+l)*(2+l*2)+px*(l+1)*6;c.fillStyle=col;
+  L.forEach(tr=>{const x=tr.x+sway,b=H*(.88+l*.04),w=26+l*12;c.beginPath();c.moveTo(x-w,b);c.lineTo(x,b-tr.h);c.lineTo(x+w,b);c.fill();c.fillRect(x-3,b,6,H)})});
+ // mist
+ const mist=c.createLinearGradient(0,H*.6,0,H);mist.addColorStop(0,'rgba(120,200,180,0)');mist.addColorStop(1,'rgba(120,200,180,.22)');c.fillStyle=mist;c.fillRect(0,H*.6,W,H*.4);
+ // fireflies
+ c.globalCompositeOperation='lighter';ff.forEach(f=>{f.p+=.02;f.x+=Math.sin(f.p)*.35+px*.1;f.y-=f.s*.3;if(f.y<H*.15)f.y=H;if(f.x<0)f.x=W;if(f.x>W)f.x=0;
+  const a=.5+Math.sin(f.p*2.2)*.5;const gg=c.createRadialGradient(f.x,f.y,0,f.x,f.y,f.r*7);gg.addColorStop(0,`rgba(255,235,150,${a})`);gg.addColorStop(1,'rgba(255,235,150,0)');c.fillStyle=gg;c.beginPath();c.arc(f.x,f.y,f.r*7,0,6.3);c.fill()});
+ c.globalCompositeOperation='source-over';
+ if(!$('#intro').classList.contains('gone'))requestAnimationFrame(frame)}
+size();addEventListener('resize',size);
+addEventListener('pointermove',e=>{px=(e.clientX/innerWidth-.5)*2});
+addEventListener('deviceorientation',e=>{if(e.gamma!=null)px=Math.max(-1,Math.min(1,e.gamma/30))});
+if(rm){frame()}else requestAnimationFrame(frame);
+// enter
+$('#enterBtn').addEventListener('click',()=>{const i=$('#intro');i.classList.add('entering');
+ setTimeout(()=>{$('#site').classList.add('on');scrollTo(0,0)},1500);
+ setTimeout(()=>{i.classList.add('gone');document.body.style.background='#fbf6ed';vid.pause()},2300);
+ setTimeout(()=>{$$('.door').forEach((d,n)=>setTimeout(()=>{d.classList.add('peek');setTimeout(()=>d.classList.remove('peek'),900)},n*350))},3000)});
+// panels
+$$('[data-open]').forEach(b=>b.addEventListener('click',()=>{const d=$('#'+b.dataset.open);d.showModal();d.scrollTop=0}));
+$$('dialog').forEach(d=>{d.querySelector('.x').addEventListener('click',()=>d.close());d.addEventListener('click',e=>{if(e.target===d)d.close()})});
+$$('.flip').forEach(f=>f.addEventListener('click',()=>{f.classList.toggle('open');f.querySelector('span').textContent=f.classList.contains('open')?'–':'+'}));
+// photo
+const caps=['A moment worth keeping. ♡','Better together, as the picture says. ✦','Golden light suits you both.','Some pictures deserve a corner of their own.'];let ci=0;
+$('#photoCard').addEventListener('click',e=>{ci=(ci+1)%caps.length;$('#cap').textContent=caps[ci];$('#photoCard').style.transform='rotate('+(ci%2?1.2:-1.2)+'deg) scale(1.02)';petals(e.clientX,e.clientY,14)});
+// song (loads only on tap)
+$('#playBtn').addEventListener('click',()=>{$('#vf').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/cQq6iLF66Gc?autoplay=1&rel=0" title="Alfaaz by Hamza Malik and Zain Zohaib" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';$('#vinyl').classList.add('play')});
+// hidden surprise: tap the star
+$('#star').addEventListener('click',e=>{const r=e.target.getBoundingClientRect();petals(r.left,r.top,50);setTimeout(()=>$('#ps').showModal(),500)});
+// petals
+const fx=$('#fx'),f=fx.getContext('2d');let P=[],run=false;
+function petals(x,y,n){if(rm)return;fx.width=innerWidth;fx.height=innerHeight;for(let i=0;i<n;i++)P.push({x,y,vx:(Math.random()-.5)*6,vy:-Math.random()*6-2,r:Math.random()*5+3,a:1,h:Math.random()<.5?'#d99e98':'#e8c987'});if(!run){run=true;loop()}}
+function loop(){f.clearRect(0,0,fx.width,fx.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.18;p.a-=.01;f.globalAlpha=Math.max(p.a,0);f.fillStyle=p.h;f.beginPath();f.ellipse(p.x,p.y,p.r,p.r*.6,p.x*.05,0,6.3);f.fill()});P=P.filter(p=>p.a>0);if(P.length)requestAnimationFrame(loop);else{run=false;f.clearRect(0,0,fx.width,fx.height)}}
+})();
+</script>
+</body>
+</html>
